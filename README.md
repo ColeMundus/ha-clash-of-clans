@@ -39,6 +39,16 @@ Change polling through the integration's **Configure** option. Add another confi
 
 Entities have Clash of Clans branding in their names and IDs. Clan sensors follow the configured player rather than requiring a separate entry for every clan change. Missing provider values are not converted to zero.
 
+## Screenshots
+
+Actual Home Assistant setup with blank credential and player-tag fields:
+
+![Clash of Clans setup in Home Assistant](docs/images/setup.png)
+
+A crop of the native sensor list, showing labels and icons only. Player identity and game statistics are outside the crop.
+
+![Clash of Clans sensor labels and icons in Home Assistant](docs/images/sensor-icons.png)
+
 ## Limits and privacy
 
 - Supercell's public API does **not** expose live gold/elixir balances, builder availability, training queues, or upgrade timers. This integration does not automate gameplay.
