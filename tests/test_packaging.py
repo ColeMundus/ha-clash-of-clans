@@ -15,6 +15,12 @@ from scripts.build_artifact import MAX_FILE, PREFIX, REQUIRED, build, validate_m
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.mark.parametrize("filename", ["LICENSE", "NOTICE.md"])
+def test_source_download_includes_notices(filename):
+    """HACS downloads the component subtree, not repository-root notices."""
+    assert (ROOT / PREFIX / filename).read_bytes() == (ROOT / filename).read_bytes()
+
+
 @pytest.fixture
 def package_source(tmp_path):
     root = tmp_path / "source"
