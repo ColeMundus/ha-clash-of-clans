@@ -69,6 +69,36 @@ async def test_meaningful_player_clan_war_states(hass, provider):
     assert len(provider.requests) == 3
 
 
+@pytest.mark.parametrize(
+    "key, icon",
+    {
+        "trophies": "mdi:trophy",
+        "best_trophies": "mdi:trophy-award",
+        "town_hall_level": "mdi:castle",
+        "exp_level": "mdi:star-circle",
+        "war_stars": "mdi:star",
+        "donations": "mdi:hand-heart",
+        "donations_received": "mdi:gift",
+        "attack_wins": "mdi:sword",
+        "defense_wins": "mdi:shield-check",
+        "builder_base_trophies": "mdi:hammer",
+        "clan_capital_contributions": "mdi:bank-transfer-out",
+        "league": "mdi:medal",
+        "clan_members": "mdi:account-group",
+        "clan_level": "mdi:shield-star",
+        "clan_points": "mdi:counter",
+        "war_state": "mdi:sword-cross",
+        "current_war_stars": "mdi:star-check",
+        "opponent_stars": "mdi:star-outline",
+        "used_attacks": "mdi:target",
+        "war_end": "mdi:timer-sand",
+    }.items(),
+)
+async def test_metric_icons_in_actual_ha_states(hass, provider, key, icon):
+    await setup(hass)
+    assert hass.states.get(PREFIX + key).attributes.get("icon") == icon
+
+
 async def test_no_clan_player_still_available(hass, provider, player):
     player.pop("clan")
     provider.set("/v1/players/#P0Y", body=player)

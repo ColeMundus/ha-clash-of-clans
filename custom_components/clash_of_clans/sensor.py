@@ -20,6 +20,29 @@ from . import ClashOfClansConfigEntry
 from .const import DOMAIN
 from .coordinator import ClashOfClansCoordinator
 
+SENSOR_ICONS = {
+    "trophies": "mdi:trophy",
+    "best_trophies": "mdi:trophy-award",
+    "town_hall_level": "mdi:castle",
+    "exp_level": "mdi:star-circle",
+    "war_stars": "mdi:star",
+    "donations": "mdi:hand-heart",
+    "donations_received": "mdi:gift",
+    "attack_wins": "mdi:sword",
+    "defense_wins": "mdi:shield-check",
+    "builder_base_trophies": "mdi:hammer",
+    "clan_capital_contributions": "mdi:bank-transfer-out",
+    "league": "mdi:medal",
+    "clan_members": "mdi:account-group",
+    "clan_level": "mdi:shield-star",
+    "clan_points": "mdi:counter",
+    "war_state": "mdi:sword-cross",
+    "current_war_stars": "mdi:star-check",
+    "opponent_stars": "mdi:star-outline",
+    "used_attacks": "mdi:target",
+    "war_end": "mdi:timer-sand",
+}
+
 
 def value_at(data: dict[str, Any], section: str, key: str) -> Any:
     return (data.get(section) or {}).get(key)
@@ -62,6 +85,7 @@ def numeric(
         key=key,
         name=name,
         state_class=SensorStateClass.MEASUREMENT,
+        icon=SENSOR_ICONS[key],
         value_fn=lambda data: value_at(data, section, field),
     )
 
@@ -85,35 +109,42 @@ SENSORS = (
         "player",
         "clanCapitalContributions",
     ),
-    ClashOfClansSensorDescription(key="league", name="League", value_fn=league),
+    ClashOfClansSensorDescription(
+        key="league", icon=SENSOR_ICONS["league"], name="League", value_fn=league
+    ),
     numeric("clan_members", "Clan members", "clan", "members"),
     numeric("clan_level", "Clan level", "clan", "clanLevel"),
     numeric("clan_points", "Clan points", "clan", "clanPoints"),
     ClashOfClansSensorDescription(
         key="war_state",
+        icon=SENSOR_ICONS["war_state"],
         name="War state",
         value_fn=lambda data: value_at(data, "war", "state"),
     ),
     ClashOfClansSensorDescription(
         key="current_war_stars",
+        icon=SENSOR_ICONS["current_war_stars"],
         name="Current war stars",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: war_stat(data, "clan", "stars"),
     ),
     ClashOfClansSensorDescription(
         key="opponent_stars",
+        icon=SENSOR_ICONS["opponent_stars"],
         name="Opponent stars",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: war_stat(data, "opponent", "stars"),
     ),
     ClashOfClansSensorDescription(
         key="used_attacks",
+        icon=SENSOR_ICONS["used_attacks"],
         name="Used attacks",
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda data: war_stat(data, "clan", "attacks"),
     ),
     ClashOfClansSensorDescription(
         key="war_end",
+        icon=SENSOR_ICONS["war_end"],
         name="War end",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=war_end,

@@ -2,10 +2,10 @@
 
 # Clash of Clans for Home Assistant
 
-[![CI workflow](https://img.shields.io/badge/CI-workflow-5865F2)](https://github.com/ColeMundus/ha-clash-of-clans/actions/workflows/ci.yml)
-[![Home Assistant](https://img.shields.io/badge/Home_Assistant-2026.11-18BCF2)](https://www.home-assistant.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
-[![Distribution](https://img.shields.io/badge/Status-private_preview-orange)](https://github.com/ColeMundus/ha-clash-of-clans)
+[![CI workflow](docs/badges/ci.svg)](https://github.com/ColeMundus/ha-clash-of-clans/actions/workflows/ci.yml)
+[![Home Assistant](docs/badges/home-assistant.svg)](https://www.home-assistant.io/)
+[![License: MIT](docs/badges/license.svg)](LICENSE)
+[![Distribution](docs/badges/status.svg)](https://github.com/ColeMundus/ha-clash-of-clans)
 
 Read-only player, clan and public clan-war sensors using Supercell's Clash of Clans API. Enter a player tag once; the integration follows that player's current clan automatically.
 
