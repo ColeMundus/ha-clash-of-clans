@@ -25,7 +25,7 @@ def test_readme_screenshots_resolve_without_embedded_metadata():
     root = Path(__file__).resolve().parents[1]
     readme = (root / "README.md").read_text()
     screenshots = re.findall(r"!\[[^\]]+\]\((docs/images/[^)]+)\)", readme)
-    assert set(screenshots) == {"docs/images/setup.png", "docs/images/sensor-icons.png"}
+    assert screenshots == ["docs/images/setup.png"]
     for name in screenshots:
         with Image.open(root / name) as image:
             assert image.format == "PNG"
