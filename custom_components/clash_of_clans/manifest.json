@@ -1,6 +1,7 @@
 {
   "domain": "clash_of_clans",
   "name": "Clash of Clans",
+  "categories": ["media_entertainment.gaming"],
   "codeowners": [
     "@ColeMundus"
   ],

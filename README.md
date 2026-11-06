@@ -5,7 +5,7 @@
 [![CI: workflow](docs/badges/ci.svg)](https://github.com/ColeMundus/ha-clash-of-clans/actions/workflows/ci.yml)
 [![HA tested: 2026.11.0](docs/badges/compatibility.svg)](https://github.com/ColeMundus/ha-clash-of-clans/actions/workflows/ci.yml)
 [![License: MIT](docs/badges/license.svg)](LICENSE)
-[![Distribution: private preview](docs/badges/distribution.svg)](#installation)
+[![Distribution: public beta](docs/badges/distribution.svg)](#installation)
 
 Player, clan and public clan-war sensors using Supercell's API. Enter a player tag once; the integration follows that player's current clan automatically.
 
@@ -13,9 +13,12 @@ Player, clan and public clan-war sensors using Supercell's API. Enter a player t
 
 Requires **Home Assistant Core 2026.11.0 or newer**.
 
-1. Copy `custom_components/clash_of_clans` into your Home Assistant `config/custom_components` directory.
-2. Restart Home Assistant.
-3. Open **Settings → Devices & services → Add integration → Clash of Clans**.
+1. Open **Settings → Marketplace → Add from link** and enter `https://github.com/ColeMundus/ha-clash-of-clans`. Connect GitHub if prompted.
+2. Open Clash of Clans, enable **⋮ → Include pre-releases**, then choose **⋮ → Install another version → v0.1.0b1**.
+3. Install and restart Home Assistant when prompted.
+4. Open **Settings → Devices & services → Add integration → Clash of Clans**.
+
+**Manual install:** Download the [release ZIP](https://github.com/ColeMundus/ha-clash-of-clans/releases/download/v0.1.0b1/clash_of_clans-0.1.0b1.zip), extract it into your Home Assistant configuration directory, and restart.
 
 ## Create an API key
 
