@@ -1,0 +1,48 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Clash of Clans",
+        "description": "1. Sign in to the [Clash of Clans developer portal]({developer_portal}) and create an API key.\n2. Allow Home Assistant\u2019s public internet IP address in the key\u2019s IP allowlist.\n3. Paste the API key below and enter your in-game player tag.\n\nHome Assistant follows your player\u2019s current clan automatically. Private war logs are unavailable. See [setup help]({help_url}).",
+        "data": {
+          "api_key": "API key",
+          "player_tag": "Player tag",
+          "scan_interval": "Polling interval (minutes)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Replace API key",
+        "description": "1. Sign in to the [Clash of Clans developer portal]({developer_portal}) and create an API key.\n2. Allow Home Assistant\u2019s public internet IP address in the key\u2019s IP allowlist.\n3. Paste the replacement API key below. Your existing player tag is retained.\n\nSee [setup help]({help_url}).",
+        "data": {
+          "api_key": "New API key"
+        }
+      }
+    },
+    "error": {
+      "invalid_tag": "Enter a valid player tag using only 0289PYLQGRJCUV, with an optional # prefix.",
+      "invalid_interval": "Choose a whole number of minutes from 1 to 60.",
+      "invalid_auth": "The API key was rejected. Check the key and try again.",
+      "ip_not_allowed": "This key does not allow Home Assistant\u2019s public IP address. Update its IP allowlist in the developer portal.",
+      "player_not_found": "No player was found for this tag.",
+      "rate_limited": "The provider has requested a cooldown. Wait before trying again.",
+      "cannot_connect": "Unable to connect to Clash of Clans. Try again later."
+    },
+    "abort": {
+      "already_configured": "This player is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Polling options",
+        "description": "Choose a whole number of minutes from 1 to 60. Provider cooldowns still apply to manual refreshes and reloads.",
+        "data": {
+          "scan_interval": "Polling interval (minutes)"
+        }
+      }
+    },
+    "error": {
+      "invalid_interval": "Choose a whole number of minutes from 1 to 60."
+    }
+  }
+}

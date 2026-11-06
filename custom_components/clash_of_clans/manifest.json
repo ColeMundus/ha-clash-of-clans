@@ -1,0 +1,14 @@
+{
+  "domain": "clash_of_clans",
+  "name": "Clash of Clans",
+  "codeowners": [
+    "@ColeMundus"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/ColeMundus/ha-clash-of-clans",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/ColeMundus/ha-clash-of-clans/issues",
+  "requirements": [],
+  "version": "0.1.0b1"
+}
