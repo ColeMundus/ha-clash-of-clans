@@ -63,8 +63,8 @@ jobs:
         with:
           python-version: '3.14.7'
           enable-cache: true
+          save-cache: ${{ github.ref == 'refs/heads/main' }}
           cache-dependency-glob: uv.lock
-          cache-suffix: draft-lint
       - run: uv sync --locked
       - name: Run lint, formatting and available type checks
         shell: bash
@@ -87,6 +87,8 @@ jobs:
           version: "0.12.19"
           python-version: "3.14.7"
           enable-cache: true
+          save-cache: ${{ github.ref == 'refs/heads/main' }}
+          cache-dependency-glob: uv.lock
       - run: uv sync --locked
       - name: Run lint, formatting and available type checks
         shell: bash
