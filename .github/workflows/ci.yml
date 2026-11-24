@@ -54,7 +54,7 @@ jobs:
     if: needs.scope.outputs.docs_only == 'true'
     needs: scope
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 2
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -79,7 +79,7 @@ jobs:
     if: ${{ !cancelled() && needs.scope.outputs.docs_only != 'true' }}
     needs: scope
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -109,7 +109,7 @@ jobs:
     if: ${{ !cancelled() && needs.scope.outputs.docs_only != 'true' }}
     needs: scope
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Validate integration metadata
@@ -120,7 +120,7 @@ jobs:
     needs: scope
     if: ${{ !cancelled() && (github.event.repository.private == false) && needs.scope.outputs.docs_only != 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: hacs/action@d556e736723344f83838d08488c983a15381059a # 22.5.0
