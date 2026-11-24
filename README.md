@@ -47,3 +47,5 @@ Polling defaults to five minutes and can be changed from 1–60 minutes through 
 - War details require a public war log. Private logs leave war sensors unavailable; player and clan sensors still work. Clan War League rounds and raid-weekend details are not included.
 
 Clash of Clans artwork belongs to Supercell; see [NOTICE.md](NOTICE.md). This material is unofficial and is not endorsed by Supercell. See Supercell's [Fan Content Policy](https://supercell.com/en/fan-content-policy/).
+
+<!-- Temporary CI measurement full-08. This PR will be closed unmerged. -->
