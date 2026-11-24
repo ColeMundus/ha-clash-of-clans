@@ -90,15 +90,15 @@ async def provider(monkeypatch, player, clan, war):
     from custom_components.clash_of_clans import api
 
     class Provider:
-        responses = {
-            "/v1/players/#P0Y": (200, player, {}),
-            "/v1/clans/#Q0G": (200, clan, {}),
-            "/v1/clans/#Q0G/currentwar": (200, war, {}),
-        }
-
         def __init__(self):
             self.requests = []
-            self.responses = deepcopy(self.responses)
+            self.responses = deepcopy(
+                {
+                    "/v1/players/#P0Y": (200, player, {}),
+                    "/v1/clans/#Q0G": (200, clan, {}),
+                    "/v1/clans/#Q0G/currentwar": (200, war, {}),
+                }
+            )
 
         def set(self, path, status=200, body=None, headers=None):
             self.responses[path] = (status, body, headers or {})
